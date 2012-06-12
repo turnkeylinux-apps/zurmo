@@ -22,3 +22,22 @@ chown -R www-data:www-data $WEBROOT/app/protected/data
 chown -R www-data:www-data $WEBROOT/app/protected/runtime
 chown -R www-data:www-data $WEBROOT/app/protected/config
 
+# tweak php settings
+CONF=/etc/php5/apache2/php.ini
+sed -i "s|^memory_limit.*|memory_limit = 125M|" $CONF
+sed -i "s|^upload_max_filesize.*|upload_max_filesize = 20M|" $CONF
+sed -i "s|^post_max_size.*|post_max_size = 20M|" $CONF
+
+# tweak mysql settings
+CONF=/etc/mysql/my.cnf
+sed -i "s|^thread_stack.*|thread_stack            = 4096K|" $CONF
+sed -i "s|^max_allowed_packet.*|max_allowed_packet      = 20M|g" $CONF
+
+cat >/etc/mysql/conf.d/zurmo.cnf<<EOF
+[mysqld]
+optimizer_search_depth=0
+max_sp_recursion_depth=20
+EOF
+
+rm -f /etc/mysql/conf.d/force_utf8.cnf
+
