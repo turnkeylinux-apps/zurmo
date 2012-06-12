@@ -11,3 +11,14 @@ DOMAIN=www.example.com
 SRC=/usr/local/src
 WEBROOT=/var/www/zurmo
 
+# unpack and set required permissions
+mkdir -p $WEBROOT
+tar -zxf $SRC/zurmo-*.tar.gz -C $WEBROOT
+rm $SRC/zurmo-*.tar.gz
+
+chown -R root:root $WEBROOT
+chown -R www-data:www-data $WEBROOT/app/assets
+chown -R www-data:www-data $WEBROOT/app/protected/data
+chown -R www-data:www-data $WEBROOT/app/protected/runtime
+chown -R www-data:www-data $WEBROOT/app/protected/config
+
