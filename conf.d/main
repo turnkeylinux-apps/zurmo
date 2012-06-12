@@ -76,6 +76,11 @@ chmod 640 $CONFIG/perInstance.php
 chown www-data:www-data $CONFIG/debug.php
 chown www-data:www-data $CONFIG/perInstance.php
 
+# change super to admin
+$MYSQL_BATCH --execute "UPDATE $DB_NAME._user SET username=\"jason\" WHERE username=\"admin\";"
+$MYSQL_BATCH --execute "UPDATE $DB_NAME._user SET username=\"$ADMIN_NAME\" WHERE username=\"super\";"
+$MYSQL_BATCH --execute "UPDATE $DB_NAME.person SET firstname=\"Admin\" WHERE firstname=\"Super\";"
+
 # stop services
 /etc/init.d/mysql stop
 
