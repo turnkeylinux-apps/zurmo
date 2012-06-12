@@ -85,6 +85,9 @@ $MYSQL_BATCH --execute "UPDATE $DB_NAME.person SET firstname=\"Admin\" WHERE fir
 $MYSQL_BATCH --execute "DELETE FROM $DB_NAME.notification WHERE type=\"RemoveApiTestEntryScriptFile\";"
 $MYSQL_BATCH --execute "DELETE FROM $DB_NAME.notification WHERE type=\"HostInfoAndScriptUrlNotSetup\";"
 
+# recommended for production use
+rm -f $WEBROOT/app/test.php
+
 # stop services
 /etc/init.d/mysql stop
 
