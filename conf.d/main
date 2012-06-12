@@ -41,3 +41,8 @@ EOF
 
 rm -f /etc/mysql/conf.d/force_utf8.cnf
 
+# configure apache
+a2dissite default
+a2ensite zurmo
+a2enmod rewrite
+
