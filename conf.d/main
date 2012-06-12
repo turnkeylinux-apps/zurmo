@@ -81,6 +81,10 @@ $MYSQL_BATCH --execute "UPDATE $DB_NAME._user SET username=\"jason\" WHERE usern
 $MYSQL_BATCH --execute "UPDATE $DB_NAME._user SET username=\"$ADMIN_NAME\" WHERE username=\"super\";"
 $MYSQL_BATCH --execute "UPDATE $DB_NAME.person SET firstname=\"Admin\" WHERE firstname=\"Super\";"
 
+# remove notifications generated during installation
+$MYSQL_BATCH --execute "DELETE FROM $DB_NAME.notification WHERE type=\"RemoveApiTestEntryScriptFile\";"
+$MYSQL_BATCH --execute "DELETE FROM $DB_NAME.notification WHERE type=\"HostInfoAndScriptUrlNotSetup\";"
+
 # stop services
 /etc/init.d/mysql stop
 
