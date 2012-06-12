@@ -56,6 +56,26 @@ MYSQL_ADMIN="mysqladmin --user=root --password=$MYSQL_PASS"
 $MYSQL_ADMIN create $DB_NAME --default-character-set=utf8;
 $MYSQL_BATCH --execute "grant all privileges on $DB_NAME.* to $DB_USER@localhost identified by '$DB_PASS'; flush privileges;"
 
+# perform installation
+CONFIG=$WEBROOT/app/protected/config
+
+cp $CONFIG/debugDIST.php $CONFIG/debug.php
+sed -i "s|^    \$debugOn.*|    \$debugOn = false;|" $CONFIG/debug.php
+sed -i "s|^    \$minifyScripts.*|    \$minifyScripts = true;|" $CONFIG/debug.php
+sed -i "s|^    \$forceNoFreeze.*|    \$forceNoFreeze = false;|" $CONFIG/debug.php
+sed -i "s|^    \$performanceOn.*|    \$performanceOn = false;|" $CONFIG/debug.php
+
+cd $WEBROOT/app/protected/commands
+./zurmoc install localhost $DB_NAME $DB_USER $DB_PASS 3306 $ADMIN_PASS demodata
+
+sed -i "s|hostInfo'\].*|hostInfo'] = 'http://$DOMAIN';|" $CONFIG/perInstance.php
+sed -i "s|scriptUrl'\].*|scriptUrl'] = 'app/index.php';|" $CONFIG/perInstance.php
+
+chmod 640 $CONFIG/debug.php
+chmod 640 $CONFIG/perInstance.php
+chown www-data:www-data $CONFIG/debug.php
+chown www-data:www-data $CONFIG/perInstance.php
+
 # stop services
 /etc/init.d/mysql stop
 
