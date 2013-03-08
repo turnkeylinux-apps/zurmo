@@ -1,0 +1,12 @@
+#!/bin/bash -ex
+
+dl() {
+    [ "$FAB_HTTP_PROXY" ] && PROXY="--proxy $FAB_HTTP_PROXY"
+    cd $2; curl -L -f -O $PROXY $1; cd -
+}
+
+VERSION="1.1.20.e84b9e76d27d"
+URL="http://dev2.zurmo.com/downloads/zurmo-stable-${VERSION}.tar.gz"
+
+dl $URL /usr/local/src
+
