@@ -13,7 +13,7 @@ WEBROOT=/var/www/zurmo
 
 # unpack and set required permissions
 mkdir -p $WEBROOT
-tar -zxf $SRC/zurmo-*.tar.gz -C $WEBROOT
+tar -zxf $SRC/zurmo-*.tar.gz -C $(dirname $WEBROOT)
 rm $SRC/zurmo-*.tar.gz
 
 chown -R root:root $WEBROOT
@@ -48,6 +48,7 @@ a2enmod rewrite
 
 # start services
 /etc/init.d/mysql start
+/etc/init.d/memcached start
 
 # setup the database
 MYSQL_BATCH="mysql --user=root --password=$MYSQL_PASS --batch"
@@ -66,10 +67,9 @@ sed -i "s|^    \$forceNoFreeze.*|    \$forceNoFreeze = false;|" $CONFIG/debug.ph
 sed -i "s|^    \$performanceOn.*|    \$performanceOn = false;|" $CONFIG/debug.php
 
 cd $WEBROOT/app/protected/commands
-./zurmoc install localhost $DB_NAME $DB_USER $DB_PASS 3306 $ADMIN_PASS demodata
-
-sed -i "s|hostInfo'\].*|hostInfo'] = 'http://$DOMAIN';|" $CONFIG/perInstance.php
-sed -i "s|scriptUrl'\].*|scriptUrl'] = 'app/index.php';|" $CONFIG/perInstance.php
+./zurmoc install localhost \
+    $DB_NAME $DB_USER $DB_PASS 3306 \
+    $ADMIN_PASS http://$DOMAIN app/index.php demodata
 
 chmod 640 $CONFIG/debug.php
 chmod 640 $CONFIG/perInstance.php
@@ -89,5 +89,6 @@ $MYSQL_BATCH --execute "DELETE FROM $DB_NAME.notification WHERE type=\"HostInfoA
 rm -f $WEBROOT/app/test.php
 
 # stop services
+/etc/init.d/memcached stop
 /etc/init.d/mysql stop
 
