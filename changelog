@@ -9,7 +9,7 @@ turnkey-zurmo-12.1 (1) turnkey; urgency=low
 
   * Hardcoded component versions:
 
-    zurmo-stable    1.1.20.e84b9e76d27d
+    zurmo-stable    1.1.31.658d8cfa5c16
 
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances. Here we only describe changes specific to this appliance.
