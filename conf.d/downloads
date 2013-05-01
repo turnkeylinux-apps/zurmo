@@ -5,7 +5,7 @@ dl() {
     cd $2; curl -L -f -O $PROXY $1; cd -
 }
 
-VERSION="1.1.31.658d8cfa5c16"
+VERSION="1.5.14.67bf4e0edaaa"
 URL="http://dev2.zurmo.com/downloads/zurmo-stable-${VERSION}.tar.gz"
 
 dl $URL /usr/local/src
