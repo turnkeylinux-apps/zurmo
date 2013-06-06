@@ -7,7 +7,7 @@ turnkey-zurmo-12.1 (1) turnkey; urgency=low
 
   * Added phpsh (interative shell for PHP) and php5-cli (generically useful).
 
-  * Hardcoded component versions:
+  * Upstream source component versions:
 
     zurmo-stable    1.1.31.658d8cfa5c16 (i386)
                     1.5.14.67bf4e0edaaa (amd64)
