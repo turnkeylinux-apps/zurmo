@@ -12,7 +12,9 @@ and on top of that:
 
 - Zurmo configurations:
    
-   - Installed from upstream source code to /var/www/zurmo
+    - Installed from upstream source code to /var/www/zurmo
+    - Includes and configured to use Memcached (recommended for
+      production).
 
 - SSL support out of the box.
 - `PHPMyAdmin`_ administration frontend for MySQL (listening on port
