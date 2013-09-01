@@ -13,9 +13,8 @@ WEBROOT=/var/www/zurmo
 
 # unpack and set required permissions
 mkdir -p $WEBROOT
-tar -zxf $SRC/zurmo-*.tar.gz -C $(dirname $WEBROOT)
-rm $SRC/zurmo-*.tar.gz
-
+unzip $SRC/zurmo-*.zip -d $(dirname $WEBROOT)
+rm $SRC/zurmo-*.zip
 chown -R root:root $WEBROOT
 chown -R www-data:www-data $WEBROOT/app/assets
 chown -R www-data:www-data $WEBROOT/app/protected/data

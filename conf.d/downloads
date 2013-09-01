@@ -6,7 +6,7 @@ dl() {
 }
 
 VERSION="1.5.14.67bf4e0edaaa"
-URL="http://dev2.zurmo.com/downloads/zurmo-stable-${VERSION}.tar.gz"
+URL="http://sourceforge.net/projects/zurmo/files/zurmo-stable-${VERSION}.zip"
 
 dl $URL /usr/local/src
 
