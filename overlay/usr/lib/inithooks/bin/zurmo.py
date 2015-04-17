@@ -60,12 +60,7 @@ def main():
     if domain == "DEFAULT":
         domain = DEFAULT_DOMAIN
 
-    '''
-    hash = hashlib.md5(password).hexdigest()
-
     m = MySQL()
-    m.execute('UPDATE zurmo._user SET hash=\"%s\" WHERE username=\"admin\";' % hash)
-    '''
     
     zurmo = "/var/www/zurmo/app/protected/commands/"
     system("cd %s;./zurmoc changePassword --username=admin --password=%s" % (zurmo, password))
