@@ -67,8 +67,8 @@ def main():
     m.execute('UPDATE zurmo._user SET hash=\"%s\" WHERE username=\"admin\";' % hash)
     '''
     
-    zurmo = "/var/www/zurmo/app/protected/commands/zurmoc.php"
-    system("cd %s;zurmoc changePassword --username=admin --password=%s" % (zurmo, password))
+    zurmo = "/var/www/zurmo/app/protected/commands/"
+    system("cd %s;./zurmoc changePassword --username=admin --password=%s" % (zurmo, password))
 
     conf = "/var/www/zurmo/app/protected/config/perInstance.php"
     system("sed -i \"s|hostInfo.*|hostInfo'] = 'http://%s';|\" %s" % (domain, conf))
