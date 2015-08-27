@@ -32,6 +32,10 @@ turnkey-zurmo-12.1 (1) turnkey; urgency=low
     zurmo-stable    1.1.31.658d8cfa5c16 (i386)
                     1.5.14.67bf4e0edaaa (amd64)
 
+  * Replaced PHPMyAdmin with Adminer
+
+  * Hardened default SSL settings
+
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances. Here we only describe changes specific to this appliance.
 
