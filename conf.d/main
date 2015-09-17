@@ -52,6 +52,8 @@ a2enmod rewrite
 /etc/init.d/mysql start
 /etc/init.d/memcached start
 
+sleep 10
+
 # setup the database
 MYSQL_BATCH="mysql --user=root --password=$MYSQL_PASS --batch"
 MYSQL_ADMIN="mysqladmin --user=root --password=$MYSQL_PASS"
