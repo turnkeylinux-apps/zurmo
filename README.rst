@@ -23,6 +23,12 @@ and on top of that:
   password recovery).
 - Webmin modules for configuring Apache2, PHP, MySQL and Postfix.
 
+Supervised Manual Zurmo Update
+-------------------------------------------
+
+To upgrade to the latest version of Zurmo see `Upgrades`_ on the
+Zurmo website.
+
 Credentials *(passwords set at first boot)*
 -------------------------------------------
 
@@ -33,3 +39,4 @@ Credentials *(passwords set at first boot)*
 .. _Zurmo: http://zurmo.org/
 .. _TurnKey Core: https://www.turnkeylinux.org/core
 .. _Adminer: http://www.adminer.org/
+.. _Upgrades: http://zurmo.org/upgrades
