@@ -22,12 +22,12 @@ chown -R www-data:www-data $WEBROOT/app/protected/runtime
 chown -R www-data:www-data $WEBROOT/app/protected/config
 
 # tweak php settings
-CONF=/etc/php5/apache2/php.ini
+CONF=/etc/php/7.0/apache2/php.ini
 sed -i "s|^memory_limit.*|memory_limit = 128M|" $CONF
 sed -i "s|^upload_max_filesize.*|upload_max_filesize = 20M|" $CONF
 sed -i "s|^post_max_size.*|post_max_size = 20M|" $CONF
 
-CONF=/etc/php5/cli/php.ini
+CONF=/etc/php/7.0/cli/php.ini
 sed -i "s|^memory_limit.*|memory_limit = 128M|" $CONF
 
 # tweak mysql settings
