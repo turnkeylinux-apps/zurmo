@@ -4,7 +4,7 @@ dl() {
     [ "$FAB_HTTP_PROXY" ] && PROXY="--proxy $FAB_HTTP_PROXY"
     cd $2; curl -L -f -O $PROXY $1; cd -
 }
-VERSION="3.2.1.57987acc3018"
+VERSION="3.2.3.74732d3df221"
 URL="http://build.zurmo.com/downloads/zurmo-stable-${VERSION}.zip"
 
 dl $URL /usr/local/src
