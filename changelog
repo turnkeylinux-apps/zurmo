@@ -1,6 +1,6 @@
 turnkey-zurmo-15.0 (1) turnkey; urgency=low
 
-  * Upgraded to latest upstream version of Zurmo (3.2.3.74732d3df221)
+  * Upgraded to latest upstream version of Zurmo (3.2.4.1a2cb282ae74)
 
   * Install Adminer directly from stretch/main repo
 
@@ -9,7 +9,7 @@ turnkey-zurmo-15.0 (1) turnkey; urgency=low
   * Note: Please refer to turnkey-core's changelog for changes common to all
     appliances. Here we only describe changes specific tot his appliance.
 
- -- Stefan Davis <stefan@turnkeylinux.org>  Tue, 12 Dec 2017 21:58:43 +1100
+ -- Stefan Davis <stefan@turnkeylinux.org>  Mon, 02 Jul 2018 10:43:51 +1000
 
 turnkey-zurmo-14.2 (1) turnkey; urgency=low
 
