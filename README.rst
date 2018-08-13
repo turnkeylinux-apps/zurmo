@@ -16,6 +16,10 @@ and on top of that:
     - Includes and configured to use Memcached (recommended for
       production).
 
+      **Security note**: Updates to Zurmo may require supervision so
+      they **ARE NOT** configured to install automatically. See `Zurmo
+      documentation`_ for upgrading.
+
 - SSL support out of the box.
 - `Adminer`_ administration frontend for MySQL (listening on port
   12322 - uses SSL).
@@ -23,11 +27,6 @@ and on top of that:
   password recovery).
 - Webmin modules for configuring Apache2, PHP, MySQL and Postfix.
 
-Supervised Manual Zurmo Update
--------------------------------------------
-
-To upgrade to the latest version of Zurmo see `Upgrades`_ on the
-Zurmo website.
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
@@ -39,5 +38,5 @@ Credentials *(passwords set at first boot)*
 
 .. _Zurmo: http://zurmo.org/
 .. _TurnKey Core: https://www.turnkeylinux.org/core
-.. _Adminer: http://www.adminer.org/
-.. _Upgrades: http://zurmo.org/upgrades
+.. _Zurmo documentation: http://zurmo.org/upgrades
+.. _Adminer: https://www.adminer.org/
