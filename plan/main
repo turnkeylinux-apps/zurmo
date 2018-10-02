@@ -10,6 +10,7 @@ php-mbstring
 php-soap
 php-imap
 php-memcached
+php-xml
 
 memcached
 
