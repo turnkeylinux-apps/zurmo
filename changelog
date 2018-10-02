@@ -1,3 +1,9 @@
+turnkey-zurmo-15.1 (1) turnkey; urgency=low
+
+  * Include missing dependency php-xml - closes #1206.
+
+ -- Zhenya Hvorostian <zhenya@turnkeylinux.org>  Mon, 01 Oct 2018 22:03:59 +0300
+
 turnkey-zurmo-15.0 (1) turnkey; urgency=low
 
   * Upgraded to latest upstream version of Zurmo (3.2.4.1a2cb282ae74)
